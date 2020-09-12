@@ -1,38 +1,21 @@
 <script>
 	import Invert from './components/Invert.svelte';
+	import Layout from './components/Layout.svelte';
 	import { bgColor } from './store.js'
 	export let name;
 
-	let color = 'green';
-
-	const unsubscribe = bgColor.subscribe(val => {
-		color = val;
-	})
-
 </script>
 
-<div class="container" style='--main-bg-color: {color}'>
+<Layout>
 	<main>
 		<h1>Hello {name}!</h1>
 		<Invert />
 	</main>
-</div>
+</Layout>
 
 
 <style>
 
-	:global(body) {
-		margin: 0;
-	}
-
-	.container {
-		background: var(--main-bg-color);
-		margin: 0;
-		padding: 0;
-		height: 100vh;
-		width: 100vw;
-	}
-	
 	main {
 		text-align: center;
 		padding: 1em;
