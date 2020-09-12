@@ -32,7 +32,10 @@
 
 	:global(.grid) {
 		display: grid;
+		grid-gap: 2rem;
 		grid-template-columns: repeat(3, 1fr);
+		place-items: center;
+		margin: 1rem 0;
 	}
 
 	main {

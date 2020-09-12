@@ -14,8 +14,7 @@
     display: grid;
     min-height: 250px;
     min-width: 100px;
-    max-width: 300px;
-    margin: 1rem;
+    width: 100%;
   }
 
   h1 { 
