@@ -1,20 +1,46 @@
 <script>
-  export let person;
+  export let name;
+  export let surname;
+  export let date;
 </script>
 
-<section>
-  <h1>{person.name} {#if person.surname}{person.surname}{/if}</h1>
-</section>
+<article>
+  <header>
+    <p>{date}</p>
+    <h1>{name} 
+      {#if surname}
+        {surname}
+      {/if}
+  </h1>
+  </header>
+</article>
 
 <style>
-  section {
-    background: white;
+  article {
+    background: lightgrey;
     border-radius: 5px;
-    box-shadow: 0 0 5px;
+    box-shadow: -.2rem 0 0.1rem #444;
     display: grid;
     min-height: 250px;
-    min-width: 100px;
-    width: 100%;
+    min-width: 200px;
+
+    transition: .2s;
+  }
+
+  article:hover {
+    transform: translateY(-1rem);
+  }
+
+  article:hover~article {
+    transform: translateX(100px);
+  }
+
+  article:not(:first-child) {
+    margin-left: -100px;
+  }
+
+  header { 
+
   }
 
   h1 { 

@@ -7,7 +7,7 @@
 	export let name;
 
 	const Cards = [
-		{name: 'Tom', surname: 'Claes'},
+		{name: 'Tom', surname: 'Claes', date: '2020-12-01'},
 		{name: 'Louie'},
 		{name: 'Greet'}
 	]
@@ -19,7 +19,7 @@
 		<h1>Hello {name}!</h1>
 		<div class="grid">
 			{#each Cards as card}
-				<Card person={card}/>
+				<Card {...card} />
 			{/each}
 		</div>
 
@@ -32,10 +32,11 @@
 
 	:global(.grid) {
 		display: grid;
-		grid-gap: 2rem;
 		grid-template-columns: repeat(3, 1fr);
-		place-items: center;
+		grid-row: center;
 		margin: 1rem 0;
+
+
 	}
 
 	main {
