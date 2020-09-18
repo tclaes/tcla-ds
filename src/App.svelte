@@ -2,9 +2,11 @@
 	import Invert from './components/Invert.svelte';
 	import Layout from './components/Layout.svelte';
 	import Card from './components/Card.svelte';
+	import Loader from './components/Loader.svelte';
 
 	import { bgColor } from './store.js'
 	export let name;
+	let loader = true;
 
 	const Cards = [
 		{name: 'Tom', surname: 'Claes', date: '2020-12-01'},
@@ -14,6 +16,9 @@
 
 </script>
 
+{#if loader}
+<Loader />
+{:else}
 <Layout>
 	<main>
 		<h1>Hello {name}!</h1>
@@ -26,7 +31,7 @@
 		<Invert />
 	</main>
 </Layout>
-
+{/if}
 
 <style>
 
