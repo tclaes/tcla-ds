@@ -21,6 +21,7 @@
     "apollo-link-prismic": "^1.0.8",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
+    "prismic-dom": "^2.2.3",
     "sirv-cli": "^1.0.0"
   }
 }

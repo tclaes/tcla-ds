@@ -24,7 +24,7 @@
     	query {
   			allJobs{
     			edges{
-      			node{title, function_description, company, startDate, endDate}
+      			node{title, function_description, description, company, startDate, endDate}
     			}
   			}
 			}
