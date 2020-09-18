@@ -3,8 +3,11 @@
 	import Layout from './components/Layout.svelte';
 	import Card from './components/Card.svelte';
 	import Loader from './components/Loader.svelte';
+	import Job from './components/Job.svelte';
+	import gql from "graphql-tag";
+	
+	import { bgColor, client } from './store.js'
 
-	import { bgColor } from './store.js'
 	export let name;
 	let loader = true;
 
@@ -13,6 +16,25 @@
 		{name: 'Louie'},
 		{name: 'Greet'}
 	]
+
+	let Jobs = [];
+
+	client.query({
+  	query: gql`
+    	query {
+  			allJobs{
+    			edges{
+      			node{title, function_description, company, startDate, endDate}
+    			}
+  			}
+			}
+ 		`
+	}).then(response => {
+		Jobs = response.data.allJobs.edges;
+		loader = false;
+	}).catch(error => {
+  	console.error(error);
+});
 
 </script>
 
@@ -28,6 +50,13 @@
 			{/each}
 		</div>
 
+		<div class="grid">
+			{#each Jobs as job}
+				<Job {...job.node} />
+		
+			{/each}
+		</div>
+
 		<Invert />
 	</main>
 </Layout>
@@ -40,8 +69,6 @@
 		grid-template-columns: repeat(3, 1fr);
 		grid-row: center;
 		margin: 1rem 0;
-
-
 	}
 
 	main {
