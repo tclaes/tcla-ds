@@ -4,6 +4,7 @@
 	import Card from './components/Card.svelte';
 	import Loader from './components/Loader.svelte';
 	import Job from './components/Job.svelte';
+	import HeartBeat from './components/HeartBeat.svelte';
 	import gql from "graphql-tag";
 	
 	import { bgColor, client } from './store.js'
@@ -37,6 +38,8 @@
 });
 
 </script>
+
+<HeartBeat />
 
 {#if loader}
 <Loader />
