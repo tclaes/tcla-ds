@@ -1,15 +1,9 @@
 <script>
   import { bgColor } from '../store.js'
-  
-  let color;
-
-	const unsubscribe = bgColor.subscribe(val => {
-		color = val;
-	})
 
 </script>
 
-<div class="container" style='--main-bg-color: {color}'>
+<div class="container" style='--main-bg-color: {$bgColor}'>
   <slot />
 </div>
 
